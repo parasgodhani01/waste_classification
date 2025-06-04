@@ -17,7 +17,6 @@ We are a team of five members collaborating on this project:
 - Deep learning model for multi-class waste classification
 - Real-time classification using OpenCV
 - Visualization of training performance and evaluation metrics
-- Scalable architecture for future integration with smart systems
 
 ## Technologies Used
 
