@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project is a part of our capstone project at **St. Clair College**, focused on developing a machine learning-based image classification system to accurately identify and categorize different types of waste. The ultimate goal is to support environmental sustainability through efficient waste segregation and management using deep learning techniques and with the use . 
+This project is a part of our capstone project at **St. Clair College**, focused on developing a machine learning-based image classification system to accurately identify and categorize different types of waste. The ultimate goal is to support environmental sustainability through efficient waste segregation and management using deep learning techniques.
 
 We are a team of five members collaborating on this project:
 - Paras Godhani
