@@ -22,7 +22,7 @@ def index():
             return render_template('index.html', error="No file selected")
 
         if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
+            filename = secure_filename(file.filename) #type:ignore
             filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(filepath)
 
