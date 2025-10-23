@@ -1,57 +1,33 @@
-name: CI/CD Pipeline
+name: Flask Docker CI/CD
 
 on:
   push:
-    branches: ["main"]
+    branches: [main]
   pull_request:
-    branches: ["main"]
+    branches: [main]
 
 jobs:
-  build-and-test:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout repository code
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      # 2️⃣ Set up Python
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
-          python-version: "3.10"
+          python-version: '3.10'
 
-      # 3️⃣ Install dependencies
-      - name: Install dependencies
+      - name: Build Docker image
+        run: docker build -t waste-classification-app .
+
+      - name: Run tests (optional)
         run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          docker run --rm waste-classification-app python -m unittest discover tests
 
-      # 4️⃣ Run basic tests or syntax check
-      - name: Run syntax check
-        run: |
-          python -m compileall .
-
-      # 5️⃣ Optional: Run pytest if you have tests
-      - name: Run tests
-        if: always()
-        run: |
-          if [ -d tests ]; then pytest --maxfail=1 --disable-warnings -q; fi
-
-      # 6️⃣ Upload model or build artifacts (optional)
-      - name: List files for debug
-        run: ls -R
-
-  deploy:
-    needs: build-and-test
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      # Example: Deploy via SSH or another service
-      # Replace with your hosting method (Render, EC2, etc.)
-      - name: Dummy deployment step
-        run: echo "🚀 Deployment step goes here (e.g. upload to server or container build)"
+      - name: Push Docker image (optional, Docker Hub)
+        uses: docker/build-push-action@v4
+        with:
+          push: true
+          tags: your-dockerhub-username/waste-classification:latest
