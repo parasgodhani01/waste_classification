@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(120deg, #f2e5a2, #3fcaea);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: #00695c;
+}
+
+button {
+    padding: 10px 20px;
+    background: #26c6da;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #00acc1;
+}
+
+input[type="file"] {
+    margin-top: 10px;
+}
+
+.font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
