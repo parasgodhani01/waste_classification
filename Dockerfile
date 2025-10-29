@@ -19,6 +19,10 @@ RUN mkdir -p uploads
 # Expose the Flask port
 EXPOSE 8080
 
+# Set environment variables for Flask
+ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_RUN_PORT=8080
+
 # Run the Flask app
 CMD ["python", "app.py"]
 
