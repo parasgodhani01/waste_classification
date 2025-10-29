@@ -1,30 +1,27 @@
 # Use a lightweight Python image
-FROM python:3.10-slim
+FROM python:3.11-slim
 
-# Set working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy project files
-COPY . /app
+# Copy only requirements first to leverage Docker cache
+COPY requirements.txt .
 
-# Install system dependencies (OpenCV, etc.)
-RUN apt-get update && apt-get install -y \
-    libgl1-mesa-glx \
-    libglib2.0-0 \
-    build-essential \
-    && rm -rf /var/lib/apt/lists/*
-
-# Upgrade pip and install Python dependencies
-RUN pip install --upgrade pip
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose the port your app runs on
+# Copy the rest of the app
+COPY . .
+
+# Create uploads directory
+RUN mkdir -p uploads
+
+# Expose the Flask port
 EXPOSE 8080
 
-# Set environment variables for Flask
-ENV FLASK_APP=app.py
-ENV FLASK_RUN_HOST=0.0.0.0
-ENV FLASK_RUN_PORT=8080
+# Run the Flask app
+CMD ["python", "app.py"]
 
-# Command to run Flask app
-CMD ["flask", "run"]
+
+# docker build -t parasgodhani/waste-classification-app .
+# docker run -p 8080:8080 parasgodhani/waste-classification-app
