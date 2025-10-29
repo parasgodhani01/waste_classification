@@ -15,7 +15,7 @@ def predict(img_path):
         raise ValueError(f"Invalid image path: {img_path}")
 
     try:
-        img = image.load_img(img_path, target_size=(224, 224))  
+        img = image.load_img(img_path, target_size=(384, 384))  
         img_array = image.img_to_array(img)
         img_array = np.expand_dims(img_array, axis=0)
         img_array /= 255.0
