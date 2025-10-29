@@ -3,11 +3,8 @@ from tensorflow.keras.preprocessing import image #type:ignore
 import os
 from tensorflow.keras.models import load_model #type:ignore
 
-# Load model (adjust the path based on your project structure)
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, "final_model", "ResNet50TransferLearning.h5")
+model = load_model("final_model/ResNet50TransferLearning.h5")
 
-model = load_model(MODEL_PATH)
 # Class labels (update if needed)
 class_names = ['cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
 
