@@ -3,7 +3,7 @@ from werkzeug.utils import secure_filename
 import os
 from model import predict
 
-UPLOAD_FOLDER = os.path.join(os.getcwd(), 'uploads')  # Absolute path
+UPLOAD_FOLDER = os.path.join(os.getcwd(), 'uploads')  
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -22,7 +22,7 @@ def index():
             return render_template('index.html', error="No file selected")
 
         if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename) #type:ignore
+            filename = secure_filename(file.filename)
             filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(filepath)
 
@@ -47,4 +47,4 @@ def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)  # debug=False in production
+    app.run(host='0.0.0.0', port=8080)
