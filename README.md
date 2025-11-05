@@ -1,6 +1,6 @@
 # Smart Waste Classification System 
 
-- A deep learning project that **automatically classifies waste** into six categories — **cardboard, glass, metal, paper, plastic, and trash** using **CNNs and transfer learning (ResNet50)**.  
+- A deep learning project that **automatically classifies waste** into six categories **cardboard, glass, metal, paper, plastic, and trash** using **CNNs and transfer learning (ResNet50)**.  
 - Deployed as a **Flask web app** and containerized with **Docker** for easy deployment.
 
 ---
