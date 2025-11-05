@@ -20,15 +20,21 @@
 - **Real-time Detection:** OpenCV  
 - **Containerization:** Docker
 
+---
+
 ## Run with Docker
 
 You can quickly pull and run this project using Docker:  
+
 ```bash
 # Pull the image  
 docker pull parasgodhani/waste-classification-app   
 
 # Run the container  
-docker run -p 8080:8080 parasgodhani/waste-classification-app  
+docker run -p 8080:8080 parasgodhani/waste-classification-app
+```
+
+---
 
 ## Web App Preview
 
