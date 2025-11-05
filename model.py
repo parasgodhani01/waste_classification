@@ -1,14 +1,13 @@
 import numpy as np
-from tensorflow.keras.preprocessing import image #type:ignore
 import os
-from tensorflow.keras.models import load_model #type:ignore
+from tensorflow.keras.preprocessing import image 
+from tensorflow.keras.models import load_model 
 
 model = load_model("final_model/ResNet50TransferLearning.h5")
-
-# Class labels (update if needed)
 class_names = ['cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
 
 def predict(img_path):
+    
     if not os.path.isfile(img_path):
         raise ValueError(f"Invalid image path: {img_path}")
 
