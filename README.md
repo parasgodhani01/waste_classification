@@ -18,4 +18,8 @@
 - **Frontend:** HTML, Tailwind CSS  
 - **Model:** TensorFlow / Keras (ResNet50)  
 - **Real-time Detection:** OpenCV  
-- **Containerization:** Docker  
+- **Containerization:** Docker
+
+## 🖼️ Web App Preview
+
+![Smart Waste Classification Web App](demo_pic.png)
