@@ -13,13 +13,23 @@
 
 ---
 
-## ⚙️ Tech Stack
+## Tech Stack
 - **Backend:** Flask  
 - **Frontend:** HTML, Tailwind CSS  
 - **Model:** TensorFlow / Keras (ResNet50)  
 - **Real-time Detection:** OpenCV  
 - **Containerization:** Docker
 
-## 🖼️ Web App Preview
+## Run with Docker
+
+You can quickly pull and run this project using Docker:  
+```bash
+# Pull the image  
+docker pull parasgodhani/waste-classification-app   
+
+# Run the container  
+docker run -p 8080:8080 parasgodhani/waste-classification-app  
+
+## Web App Preview
 
 ![Smart Waste Classification Web App](demo_pic.png)
